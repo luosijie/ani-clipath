@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/js/main.js',
@@ -18,36 +19,12 @@ module.exports = {
           }
         },
         exclude: /node_modules/
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          { loader: 'sass-loader' },
-          { 
-            loader: 'postcss-loader',
-            options: {
-              plugins: function () {
-                return [
-                  require('autoprefixer')()
-                ]
-              }
-            }
-          }
-        ]
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Ani-Clipath'
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        drop_console: false
-      }
+      template: './src/index.html'
     }),
     new webpack.HotModuleReplacementPlugin()
   ],
@@ -58,4 +35,31 @@ module.exports = {
     hot: true
   },
   devtool: 'eval-source-map',
+}
+
+if (process.env.NODE_ENV === 'development') {
+  module.exports.module.rules = module.exports.module.rules.concat([
+    {
+      test: /\.scss$/,
+      use: [ 'style-loader' ,'css-loader', 'sass-loader', 'postcss-loader' ]
+    }
+  ])
+}
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.module.rules = module.exports.module.rules.concat([
+    {
+      test: /\.scss$/,
+      use: [ 'css-loader', 'sass-loader', 'postcss-loader' ]
+    }
+  ])
+  module.exports.plugins = module.exports.plugins.concat([
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        drop_console: false
+      }
+    }),
+    new ExtractTextPlugin('style.css')
+  ])
 }

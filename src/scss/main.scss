@@ -1,3 +1,94 @@
+// Predefined
+$color: rgba(255,255,255,0.2);
+$hoverColor: rgba(255,255,255,0.3);
+
+// --------------------------------------------------------------------------------------------------------
+
+html,body{
+  height: 100%;
+}
 body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
   background: #05232D;
+}
+.container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 800px;
+  height: 600px;
+  .content{
+    width: 100%;
+    height: 100%;
+  }
+  .controller{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    top: 50%;
+    margin-top: -38px;
+    .left,.right{
+      position: relative;
+      width: 38px;
+      height: 38px;
+      border: 3px solid $color;
+      border-radius: 50%;
+      cursor: pointer;
+      margin: 20px;
+      transition: all 300ms;
+      &:hover{
+        transform: scale(1.1);
+      }
+      &:after{
+        display: block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -14px;
+        content: '';
+        width: 0;
+        height: 0;
+      }
+    }
+    .left{
+      &:after{
+        margin-left: -10px;
+        border-top: 14px solid transparent;
+        border-bottom: 14px solid transparent;
+        border-right: 18px solid $color;
+      }
+    }
+    .right{
+      &:after{
+        margin-left: -6px;
+        border-top: 14px solid transparent;
+        border-bottom: 14px solid transparent;
+        border-left: 18px solid $color;
+      }
+    }
+  }
+  .desc{
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a{
+      color: $color;
+      text-decoration: none;
+      font-size: 14px;
+      line-height: 26px;
+    }
+    a:hover{
+      color: $hoverColor;
+    }
+    a.title{
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
 }
