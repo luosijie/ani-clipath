@@ -4,7 +4,10 @@ const defaultShapes = [
 
 class aniClipath () {
   constructor () {
-
+    
+  }
+  buildNodes () {
+    
   }
 }
 
