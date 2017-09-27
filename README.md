@@ -2,7 +2,7 @@
   <img src="https://github.com/luosijie/Front-end-Blog/blob/master/img/logo_aniclipath.png?raw=true">
 </p>
 <p align="center">
-    <strong>For creating clip-path animation,</strong> <a href="https://luosijie.github.io/vm-markdown/">Live Demo</a>
+    <strong>For creating clip-path animation,</strong> <a href="https://luosijie.github.io/ani-clipath/">Live Demo</a>
 </p>
 
 ### Install
