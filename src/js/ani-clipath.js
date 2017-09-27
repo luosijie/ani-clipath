@@ -8,7 +8,7 @@ const defaultShapes = [
   [
     {
       c: '#E6E6E6',
-      p: [ { x: '30%', y: '30%' }, { x: '30%', y: '70%' }, { x: '70%', y: '70%' }, { x: '70%', y: '30%' }]
+      p: [ { x: '50%', y: '70%' }, { x: '30%', y: '30%' }, { x: '70%', y: '30%' }]
     }
   ]
 ]
@@ -95,6 +95,10 @@ class AniClipath {
     }
     this._shaping(this.index)
   }
+}
+
+if (typeof window !== 'undefined') {
+  window.AniClipath = AniClipath
 }
 
 export default AniClipath
