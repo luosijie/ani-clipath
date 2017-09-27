@@ -50,7 +50,10 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.module.rules = module.exports.module.rules.concat([
     {
       test: /\.scss$/,
-      use: [ 'css-loader', 'sass-loader', 'postcss-loader' ]
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use:[ 'css-loader', 'sass-loader', 'postcss-loader' ]
+      })
     }
   ])
   module.exports.plugins = module.exports.plugins.concat([

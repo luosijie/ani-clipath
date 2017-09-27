@@ -4,6 +4,9 @@ import AniClipath from './ani-clipath.js'
 
 // -------------------------------------------------------- //
 
+const next = document.querySelector('.right')
+const previous = document.querySelector('.left')
+
 animals.forEach( elem => {
   elem.forEach( _elem => {
   	_elem.p.forEach( __elem => {
@@ -13,3 +16,16 @@ animals.forEach( elem => {
   })
 })
 
+let aniClipath = new AniClipath({
+  el: '.content',
+  speed: 1000,
+  delay: 30,
+  shapes: animals
+})
+
+next.addEventListener('click', () => {
+  aniClipath.next()
+})
+previous.addEventListener('click', () => {
+  aniClipath.previous()
+})
