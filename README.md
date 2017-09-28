@@ -31,7 +31,7 @@ Need a container with **width** and **height**
 #### Props
 
 | Property | type | Description | default |
-| -------- | ---- | ----------- | ------- |
+| :-------- | :---- | :----------- | :------- |
 | el       | String | DOM container | empty |
 | speed    | Number | Animation speed of each triangle | 1500 |
 | delay    | Number | Animation delay of each triangle | 30 |
@@ -40,7 +40,7 @@ Need a container with **width** and **height**
 #### Methods
 
 | Method | Description |
-| ------ | ----------- |
+| :------ | :----------- |
 | next() | Switch to next shape |
 | previous() | Switch to previous shape |
 
