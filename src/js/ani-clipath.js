@@ -53,7 +53,7 @@ class AniClipath {
         width: 100%;
         height: 100%;
       `
-      div.style.transition = 'all ' + this.options.speed + 'ms' + ' ease-out'
+      div.style.transition = div.style.webkitTransition = 'all ' + this.options.speed + 'ms' + ' ease-out'
       fragment.appendChild(div)
     }
     return fragment
@@ -74,11 +74,9 @@ class AniClipath {
       
       setTimeout( () => {
         shapeNodes[i].style.backgroundColor = color
-        shapeNodes[i].style.clipPath = shapeNodes[i].webkitClipPath = polygon
+        shapeNodes[i].style.clipPath = shapeNodes[i].style.webkitClipPath = shapeNodes[i].webkitClipPath = polygon
       }, delay)
       delay = delay + this.options.delay
-      // shapeNodes[i].style.backgroundColor = color
-      // shapeNodes[i].style.clipPath = shapeNodes[i].webkitClipPath = polygon
     }
   }
   next () {

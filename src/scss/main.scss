@@ -6,6 +6,7 @@ $hoverColor: rgba(255,255,255,0.3);
 
 html,body{
   height: 100%;
+  font-size: 12px;
 }
 body{
   display: flex;
@@ -80,15 +81,25 @@ body{
     a{
       color: $color;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 1.2rem;
       line-height: 26px;
     }
     a:hover{
       color: $hoverColor;
     }
     a.title{
-      font-size: 18px;
+      font-size: 1.5rem;
       font-weight: bold;
+    }
+  }
+}
+
+@media screen and (max-width: 800px){
+  .container{
+    width: 100vw;
+    height: 75vw;
+    .desc{
+      bottom: -20px;
     }
   }
 }
