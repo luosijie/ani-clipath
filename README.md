@@ -28,7 +28,22 @@ Need a container with **width** and **height**
 ...
 <div class="shapes"></div>
 ```
-**aniClipth.next()** and **aniClipath.previous()** to switch shapes
+#### Props
+
+| Property | type | Description | default |
+| -------- | ---- | ----------- | ------- |
+| el       | String | DOM container | empty |
+| speed    | Number | Animation speed of each triangle | 1500 |
+| delay    | Number | Animation delay of each triangle | 30 |
+| shapes   | Array  | Data of shapes | Array |
+
+#### Methods
+
+| Method | Description |
+| ------ | ----------- |
+| next() | Switch to next shape |
+| previous() | Switch to previous shape |
+
 ```js
 <script>
   var aniClipath = new AniClipath({
