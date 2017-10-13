@@ -30,12 +30,14 @@ Need a container with **width** and **height**
 ```
 #### Props
 
-| Property | type | Description | default |
-| :-------- | :---- | :----------- | :------- |
-| el       | String | DOM container | empty |
-| speed    | Number | Animation speed of each triangle | 1500 |
-| delay    | Number | Animation delay of each triangle | 30 |
-| shapes   | Array  | Data of shapes | Array |
+| Property         | type   | Description                      | default  |
+| :--------------- | :----- | :------------------------------- | :------- |
+| el               | String | DOM container                    | empty    |
+| speed            | Number | Animation speed of each triangle | 1500     |
+| delay            | Number | Animation delay of each triangle | 30       |
+| autoplay         | Number | Play automatically               | true     |
+| autoplayInterval | Number | Intervals of autoplay            | 5000     |
+| shapes           | Array  | Data of shapes                   | Array    |
 
 #### Methods
 
@@ -50,6 +52,8 @@ Need a container with **width** and **height**
     el: '.shapes',
     speed: 1000,
     delay: 30,
+    autoplay: true,
+    autoplayInterval: 5000,
     shapes: data
   })
   setInterval(function(){

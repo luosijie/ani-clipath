@@ -20,6 +20,8 @@ let aniClipath = new AniClipath({
   el: '.content',
   speed: 1000,
   delay: 30,
+  autoplay: true,
+  autoplayInterval: 5000,
   shapes: animals
 })
 

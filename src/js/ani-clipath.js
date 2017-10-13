@@ -19,29 +19,33 @@ class AniClipath {
       el: '',
       speed: 1500,
       delay: 30,
+      autoplay: true,
+      autoplayInterval: 5000,
       shapes: defaultShapes
     }
-
     if (arguments[0] && typeof arguments[0] == 'object') {
       this.options = Object.assign(defaults, arguments[0])
     }else{
       this.options = defaults
     }
-
     if (!this.options.el) {
       throw Error('A DOM container is required!')  
-    }
-    
+    }  
     this.index = 0
     this.length = this.options.shapes.length
     this.container = document.querySelector(this.options.el)
     this.initialNodes = this._build()
     this._init()
   }
+
   _init () {
     this.container.appendChild(this.initialNodes)
     this._shaping(this.index)
+    if (this.options.autoplay) {
+      setInterval(this.next.bind(this), this.options.autoplayInterval)
+    }
   }
+
   _build () {
     const fragment = document.createDocumentFragment()
     const startShape = this.options.shapes[this.index]
@@ -58,6 +62,7 @@ class AniClipath {
     }
     return fragment
   }
+
   _shaping (index) {
     const currentShape = this.options.shapes[index]
     const shapeNodes = this.container.getElementsByClassName('ani-clipath-shape')
@@ -79,6 +84,7 @@ class AniClipath {
       delay = delay + this.options.delay
     }
   }
+
   next () {
     this.index ++
     if (this.index >= this.length) {
@@ -86,6 +92,7 @@ class AniClipath {
     }
     this._shaping(this.index)
   }
+  
   previous () {
     this.index --
     if (this.index < 0) {

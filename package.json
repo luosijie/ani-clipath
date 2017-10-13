@@ -1,6 +1,6 @@
 {
   "name": "ani-clipath",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "js to create css clip-path animation",
   "main": "./dist/ani-clipath.min.js",
   "author": "Jesse Luo <luo_sj@163.com>",
